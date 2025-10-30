@@ -10,7 +10,7 @@ class stack {
     int push(int value){
         if(isFull()){
             return -1;
-        }=
+        }
         arr[++top] = value;
         return value;
     }
@@ -47,5 +47,5 @@ int main{
     int size;
     cin >> size;
     stack(size);
-    
+
 }
