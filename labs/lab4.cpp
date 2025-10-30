@@ -1,6 +1,41 @@
 #include <iostream>
 // #define size 6;
 
+class queue{
+    int arr[size];
+    int front;
+    int rear;
+    queue(int size){
+        front = -1;
+        rear = 0;
+    }
+    bool isEmpty(){
+        return rear == 0;
+    }
+    bool isFull(){
+        return rear == size -1;
+    }
+    int enqueue(int value){
+        if(isFull()){
+            rear = 0;
+            return -1;
+
+        }else if(isEmpty()){
+            arr[rear++] == value;
+            front++
+            retrun value;
+        }
+        arr[rear++] = value;
+    }
+    int dequeue(){
+        if(isEmpty()){
+            return -1;
+        }
+        return arr[front++];
+    }
+
+}
+
 class stack {
     int arr[size];
     int top;
