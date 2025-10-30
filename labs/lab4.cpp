@@ -8,15 +8,29 @@ class stack {
         top = -1;
     }
     int push(int value){
-
+        if(isFull()){
+            return -1;
+        }else{
+            arr[++top] = value;
+        }
     }
     int pop(){
-
+        if(isEmpty()){
+            return -1;
+        }else{
+            return arr[top--];
+        }
+    }
+    bool isEmpty(){
+        return top < 0;
+    }
+    bool isFull(){
+        return top  == size-1;
     }
 }
 
 int main{
     int size;
     cin >> size;
-    stack(size)
+    stack(size);
 }
