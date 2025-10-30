@@ -2,7 +2,7 @@
 // #define size 6;
 
 class stack {
-    // int arr[size];
+    int arr[size];
     int top;
     stack(int size){
         top = -1;
@@ -47,4 +47,5 @@ int main{
     int size;
     cin >> size;
     stack(size);
+    
 }
