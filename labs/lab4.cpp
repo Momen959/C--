@@ -10,22 +10,36 @@ class stack {
     int push(int value){
         if(isFull()){
             return -1;
-        }else{
-            arr[++top] = value;
-        }
+        }=
+        arr[++top] = value;
+        return value;
     }
     int pop(){
         if(isEmpty()){
             return -1;
-        }else{
-            return arr[top--];
         }
+        return arr[top--];
     }
     bool isEmpty(){
         return top < 0;
     }
     bool isFull(){
         return top  == size-1;
+    }
+    int topValue(){
+        if(isEmpty()){
+            return -1;
+        }
+        return arr[top];
+    }
+    void printStack(){
+        if(isEmpty()){
+            cout << "no items";
+        }
+        for(int i = 0; i < size; i++){
+            cout << arr[i] << " ";
+            cout << endl;
+        }
     }
 }
 
