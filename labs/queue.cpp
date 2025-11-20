@@ -5,23 +5,23 @@ using namespace std;
 
 
 class Queue {
-    string arr[10];
+    string arr[size];
     int front, rear, count;
 
 public:
-    Queue() {
+    Queue(int size) {
         front = 0;
-        rear = 0;
+        rear  = 0;
         count = 0;
     }
 
     bool enqueue(string name) {
-        if (count == 10) {
+        if (count == size) {
             cout << "Queue is full!\n";
             return false;
         }
         arr[rear] = name;
-        rear = (rear + 1) % 10;
+        rear = (rear + 1) % size;
         count++;
         return true;
     }
@@ -29,7 +29,7 @@ public:
     string dequeue() {
         if (isEmpty()) return "No customers waiting!";
         string served = arr[front];
-        front = (front + 1) % 10;
+        front = (front + 1) % size;
         count--;
         return served;
     }
@@ -42,7 +42,7 @@ public:
         }
         cout << "Current queue: ";
         for (int i = 0; i < count; i++) {
-            cout << arr[(front + i) % 10] << " ";
+            cout << arr[(front + i) % size] << " ";
         }
         cout << endl;
     }

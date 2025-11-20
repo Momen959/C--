@@ -1,5 +1,5 @@
 #include <iostream>
-// #define size 6;
+
 
 class queue{
     int arr[size];
@@ -13,7 +13,7 @@ class queue{
         return rear == 0;
     }
     bool isFull(){
-        return rear == size -1;
+        return rear == size - 1;
     }
     int enqueue(int value){
         if(isFull()){
@@ -23,7 +23,7 @@ class queue{
         }else if(isEmpty()){
             arr[rear++] == value;
             front++
-            retrun value;
+            return value;
         }
         arr[rear++] = value;
     }
