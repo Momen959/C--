@@ -6,26 +6,27 @@ struct Node{
     Node* next;
 };
 class Linkedlist {
-    Node* head;
 public:
+    Node *head;
     Linkedlist(){
         head = NULL;
     }
     void push(int x){
-        Node newNode;
-        newNode.data = x; 
+        Node* newNode;
+        newNode->data = x; 
         if(head == NULL){
-           head = &newNode;
-           newNode.next = NULL;
+           head = newNode;
+           newNode->next = NULL;
         }else{
-            newNode.next = head;
-            head = &newNode;
+            newNode->next = head;
+            head = newNode;
         }
-
-        
     }
     void append(int x){
         
+    }
+    void presert(int x, int loc){
+
     }
     void insert(int x, int loc){
 
