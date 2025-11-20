@@ -3,11 +3,11 @@ using namespace std;
 
 struct Node{
     int data;
-    Node* next;
+    Node* next = NULL;
 };
 class Linkedlist {
 public:
-    Node *head;
+    Node* head;
     Linkedlist(){
         head = NULL;
     }
@@ -16,14 +16,19 @@ public:
         newNode->data = x; 
         if(head == NULL){
            head = newNode;
-           newNode->next = NULL;
         }else{
             newNode->next = head;
             head = newNode;
         }
     }
     void append(int x){
-        
+        Node* newNode;
+        newNode->data = x;
+        Node* current = head;
+        while (current->next != NULL){
+            current = current->next;
+        }
+        current->next = newNode;
     }
     void presert(int x, int loc){
 
