@@ -173,6 +173,10 @@ public:
         else
             parent->right = newnode;
     }
+    
+    Node* findMin(Node* r){
+        //TODO: Logic
+    }
 
     // search in BinaryTree
     bool search(int x) {

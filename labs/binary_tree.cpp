@@ -68,8 +68,71 @@ class BinaryTree{
             return ;
         }else if(current_node->data == key){
             return current_node;
-        }
+        }else if (key < current_node->data)
+			return	Search(current_node->left, key);
+		else
+			return Search(current_node->right, key);
     }
+
+    void deleteNode(int key){
+     //search for the node
+     Node* parent = nullptr;
+     Node* current = root;
+     current = Search(current, key);
+
+     //design 3 cases
+     if(current->left == nullptr && current->right == nullptr)/*case 1 - node has no children*/
+     { 
+         if (key == root->data)
+         {
+             delete root; //heap
+             root = nullptr; //stack
+         }
+         //delete current
+         delete current;
+         //update parent's connection
+         if (key < parent->data)
+             parent->left = nullptr;
+         else
+             parent->right;
+     }
+     else if (current->left == nullptr || current->right == nullptr)/*case 2 - node has 1 child*/
+     {
+         //define the child
+         Node* child;
+         if (current->left != nullptr) child = current->left;
+         else child = current->right;
+         
+         if (key == root->data)
+         {
+             delete root; //heap
+             root = child; //stack
+         }
+         //delete current
+         delete current;
+
+         //connect parent with child
+         if (child->data < parent->data) parent->left = child;
+         else parent->right = child;
+     }
+     else if (current->left != nullptr && current->right != nullptr)/*case 3 - node has 2 children*/
+     {
+         //define two pointers
+         Node* succ = current;
+         Node* temp = current->right;
+         //reach the successor
+         while (temp != nullptr)
+         {
+             succ = temp;
+             temp = temp->left;
+         }
+         //update the current's data with the successor's key
+         current->data = succ->data;
+         //delete successor
+         deleteNode(succ->data);
+
+     }
+ }
 };
 
 
